@@ -57,6 +57,7 @@ private static  void menu() {
 
 private static void transferir() {
     escolheOpcaoTransferencia();
+
     mostraSaldo("ambas");
 }
 
@@ -65,16 +66,37 @@ private static void escolheOpcaoTransferencia() {
     opcao = ler.nextInt();
     switch (opcao) {
         case 1:
-            opcao = 1;
+            transfCorrentePoupanca();
             break;
         case 2:
-             opcao = 2;
+             transfPoupancaCorrente();
              break;
         default:
             System.out.println("Opção inválida");
             escolheOpcaoTransferencia();
             break;
     }
+}
+
+private static void transfPoupancaCorrente() {
+    double valorTransferir;
+    System.out.print("Qual valor a transferir da CP "+numeroContaPoupanca+" para CC "+numeroContaCorrente+" > R$ ");
+    valorTransferir= ler.nextDouble();
+
+    if (valorTransferir > saldoContaPoupanca) {
+        System.out.println("SALDO INSUFICIENTE");
+    }else{
+        saldoContaPoupanca -= valorTransferir;    
+    }
+    saldoContaCorrente += valorTransferir;
+}
+
+private static void transfCorrentePoupanca() {
+    double valorTransferir;
+    System.out.print("Qual valor a transferir da CC "+numeroContaCorrente+" para CP "+numeroContaPoupanca+" > R$ ");
+    valorTransferir= ler.nextDouble();
+    saldoContaCorrente -= valorTransferir;
+    saldoContaPoupanca += valorTransferir;
 }
 
 private static void mostraSaldo(String conta) {
