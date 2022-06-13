@@ -56,17 +56,32 @@ private static  void menu() {
 }
 
 private static void transferir() {
-    
-
-
+    escolheOpcaoTransferencia();
     mostraSaldo("ambas");
+}
+
+private static void escolheOpcaoTransferencia() {
+    System.out.print("Entre:\n    1 - Conta corrente e poupança\n    2 - Poupança e conta corrente\n     Opção -> ");
+    opcao = ler.nextInt();
+    switch (opcao) {
+        case 1:
+            opcao = 1;
+            break;
+        case 2:
+             opcao = 2;
+             break;
+        default:
+            System.out.println("Opção inválida");
+            escolheOpcaoTransferencia();
+            break;
+    }
 }
 
 private static void mostraSaldo(String conta) {
     switch (conta) {
         case "ambas":            
-            System.out.printf("Saldo atual na Conta Corrente %d -> R$ %.2f", numeroContaCorrente, saldoContaCorrente);
-            System.out.printf("Saldo atual na Conta Poupança %d -> R$ %.2f", numeroContaPoupanca, saldoContaPoupanca);
+            System.out.printf("Saldo atual na Conta Corrente %d -> R$ %.2f \n", numeroContaCorrente, saldoContaCorrente);
+            System.out.printf("Saldo atual na Conta Poupança %d -> R$ %.2f \n", numeroContaPoupanca, saldoContaPoupanca);
             break;
 
         case "corrente":
