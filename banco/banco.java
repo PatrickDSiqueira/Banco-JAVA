@@ -1,8 +1,5 @@
 package banco;
 import java.util.Scanner;
-/**
- * main
- */
 public class banco {
     public static Scanner ler = new Scanner(System.in);
     public static String nomeCliente = "classBanco", tipoConta="";
@@ -33,10 +30,12 @@ private static  void menu() {
 
     switch (opcao) {
         case 1:
-            creditar();        
+            creditar();
+            menu();        
             break;
         case 2:
-            System.out.println("Opção -> "+opcao);
+            debitar();
+            menu();
             break;
         case 3:
             System.out.println("Opção -> "+opcao);
@@ -53,7 +52,27 @@ private static  void menu() {
             menu();
             break;
     }
-    
+}
+
+private static void debitar() {
+    escolheConta();
+    if (tipoConta.equals("Corrente")) {
+        System.out.print("Qual valor a debitar na conta corrente "+numeroContaCorrente+" -> R$ ");
+        saldoContaCorrente -= ler.nextDouble();
+        System.out.printf("Saldo atual na Conta Corrente "+numeroContaCorrente+" -> R$ %.2f", saldoContaCorrente);
+    } else if (tipoConta.equals("Poupança")) {
+        System.out.print("Qual valor a debitar na conta corrente "+numeroContaPoupanca+" -> R$ ");
+        debitarContaPoupanca(ler.nextDouble());
+        System.out.printf("Saldo atual na Conta Corrente "+numeroContaPoupanca+" -> R$ %.2f", saldoContaPoupanca);
+    }
+}
+
+private static void debitarContaPoupanca(double valorRetirar) {
+    if (valorRetirar > saldoContaPoupanca) {
+        System.out.println("SALDO INSUFICIENTE");
+    }else{
+        saldoContaPoupanca -= valorRetirar;    
+    }
 }
 
 private static void creditar() {
@@ -67,7 +86,6 @@ private static void creditar() {
         saldoContaPoupanca += ler.nextDouble();
         System.out.printf("Saldo atual na Conta Poupança %d -> R$ %.2f\n", numeroContaPoupanca, saldoContaPoupanca);
     }
-    menu();
 }
 
 private static String escolheConta() {
