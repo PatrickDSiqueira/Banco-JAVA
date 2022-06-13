@@ -42,10 +42,12 @@ private static  void menu() {
             menu();
             break;
         case 4:
-            System.out.println("Opção -> "+opcao);
+            System.out.println("Senhor (a) "+ nomeCliente);
+            mostraSaldo("ambas");
+            menu();
             break;
         case 5 :
-            System.out.println("Opção -> "+opcao);
+            System.out.println("Obrigado por trabalhar com o nosso banco!!!");
             break;
     
         default:
