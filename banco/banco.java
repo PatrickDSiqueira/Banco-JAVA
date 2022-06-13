@@ -38,7 +38,8 @@ private static  void menu() {
             menu();
             break;
         case 3:
-            System.out.println("Opção -> "+opcao);
+            transferir();
+            menu();
             break;
         case 4:
             System.out.println("Opção -> "+opcao);
@@ -50,6 +51,32 @@ private static  void menu() {
         default:
             System.out.println("Opção inválida");
             menu();
+            break;
+    }
+}
+
+private static void transferir() {
+    
+
+
+    mostraSaldo("ambas");
+}
+private static void mostraSaldo(String conta) {
+    switch (conta) {
+        case "ambas":            
+            System.out.printf("Saldo atual na Conta Corrente %d -> R$ %.2f", numeroContaCorrente, saldoContaCorrente);
+            System.out.printf("Saldo atual na Conta Poupança %d -> R$ %.2f", numeroContaPoupanca, saldoContaPoupanca);
+            break;
+
+        case "corrente":
+            System.out.printf("Saldo atual na Conta Corrente %d -> R$ %.2f", numeroContaCorrente, saldoContaCorrente);
+            break;
+        
+        case "poupanca":
+            System.out.printf("Saldo atual na Conta Poupança %d -> R$ %.2f", numeroContaPoupanca, saldoContaPoupanca);
+            break;
+
+        default:
             break;
     }
 }
