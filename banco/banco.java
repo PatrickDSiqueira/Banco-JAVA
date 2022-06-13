@@ -61,6 +61,7 @@ private static void transferir() {
 
     mostraSaldo("ambas");
 }
+
 private static void mostraSaldo(String conta) {
     switch (conta) {
         case "ambas":            
@@ -86,11 +87,11 @@ private static void debitar() {
     if (tipoConta.equals("Corrente")) {
         System.out.print("Qual valor a debitar na conta corrente "+numeroContaCorrente+" -> R$ ");
         saldoContaCorrente -= ler.nextDouble();
-        System.out.printf("Saldo atual na Conta Corrente "+numeroContaCorrente+" -> R$ %.2f", saldoContaCorrente);
+        mostraSaldo("corrente");
     } else if (tipoConta.equals("Poupança")) {
         System.out.print("Qual valor a debitar na conta corrente "+numeroContaPoupanca+" -> R$ ");
         debitarContaPoupanca(ler.nextDouble());
-        System.out.printf("Saldo atual na Conta Corrente "+numeroContaPoupanca+" -> R$ %.2f", saldoContaPoupanca);
+        mostraSaldo("poupanca");
     }
 }
 
@@ -107,11 +108,11 @@ private static void creditar() {
     if (tipoConta.equals("Corrente")) {
         System.out.print("Qual valor a creditar na conta "+tipoConta+" "+numeroContaCorrente+" -> R$ ");
         saldoContaCorrente += ler.nextDouble();
-        System.out.printf("Saldo atual na Conta Corrente %d -> R$ %.2f\n", numeroContaCorrente, saldoContaCorrente);
+        mostraSaldo("corrente");
     } else if (tipoConta.equals("Poupança")) {
         System.out.print("Qual valor a creditar na conta Poupança "+numeroContaPoupanca+" -> R$ ");
         saldoContaPoupanca += ler.nextDouble();
-        System.out.printf("Saldo atual na Conta Poupança %d -> R$ %.2f\n", numeroContaPoupanca, saldoContaPoupanca);
+        mostraSaldo("poupanca");
     }
 }
 
