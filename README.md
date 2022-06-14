@@ -2,7 +2,7 @@
 
 Algoritmo que controla uma conta de cliente e realiza operações em simulação com uma rotina diário de um banco utilizando métodos.
 
-  ![PrintTelaInicialBanco]([img](https://raw.githubusercontent.com/PatrickDSiqueira/Banco-JAVA/main/banco/Capturar.PNG))
+  ![PrintTelaInicialBanco](https://raw.githubusercontent.com/PatrickDSiqueira/Banco-JAVA/main/banco/Capturar.PNG)
   - - - 
 <br/>
 
